@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<body>
+<head>
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <title>Reentrance Attack</title>
+</head>
+
+<body>
+  <div class="container" style="margin:30px; font-size:20px">
+    <br>
+    <section id='logged-out' style="display:none">
+      You are not logged in, please: 
+      <button type="button" onclick="login()"> Login </button>
+    </section>
+    <section id='logged-in' style="display:none">
+      Logged in as: <span id="account"> </span>
+      <button type="button" onclick="logout()"> Logout </button>
+
+      <br><br>
+      
+      Target: <input type="text" id="target" /> <br>
+      Function: <input type="text" id="fc" /> <br>
+      Args: <input type="text" id="args" /> {"amount":"500000000000000000000000"} = 0.5 N <br> 
+      Times: <input type="number" id="times" /> <br>
+      Attached: <input type="number" step="0.01" id="attached"/><br>
+      GAS: <input type="number" id="GAS" /> 90000000000000 <br>
+
+      <button type="button" onclick="exec()"> Execute </button>
+      </section>
+    </section>
+  </div>
+
+  <script src="assets/js/index.js"></script>
+</body>
+</html>
