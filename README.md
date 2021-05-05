@@ -27,8 +27,10 @@ I have built a user friendly UI to interact with the contract.
 ## Starting the contracts
 
 Enter in the folders and run
-> npm install
-> npm start
+```bash
+npm install
+npm start
+```
 
 This will open two browser tabs: One to interact with the Exploitable Contract (EC),
 and the other to interact with the Reentrancy Attrack Contract (RAC).
