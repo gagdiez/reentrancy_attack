@@ -5,7 +5,7 @@ import {user_to_idx, user_balance, User} from "./model"
 const dGAS:u64 = 20000000000000
 
 export function call_N_times(target:string, fc:string, args:Array<u8>,
-                             N:u32, attach:u128=u128.Zero, GAS:u64=dGAS):bool{
+                             N:u32, attach:u128=u128.Zero, GAS:u64=dGAS):void{
   // Target: address of the contract we want to call 3 times
   // fc: function within the contract to call
   // args: json.stringify of the fc arguments, encoded as uint8array
@@ -20,12 +20,10 @@ export function call_N_times(target:string, fc:string, args:Array<u8>,
     encoded_args[i] = args[i]
   }
  
-  logging.log(target + " " + fc + " " + N.toString() + " " + attach.toString() + " " + GAS.toString())
+  logging.log("Calling " + fc + " on " + target + " " + N.toString() + " times")
 
   let cp = ContractPromiseBatch.create(target)
   for(let i:u32=1; i <= N; i++){
    cp.function_call(fc, encoded_args, attach, GAS)
   }
-
-  return true
 } 

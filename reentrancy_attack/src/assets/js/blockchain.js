@@ -33,28 +33,19 @@ export async function initNEAR() {
 }
 
 
-export async function exec(){
-  let target = $('#target').val()
-  let fc = $('#fc').val()
-  let args = $('#args').val()
-  let N = Number($('#times').val())
-  let attached = nearAPI.utils.format.parseNearAmount($('#attached').val())
-  let gas = $('#GAS').val()
-
-
-  let args_enc = new Array()
-  if(args){
-    const enc = new TextEncoder();
-    args_enc = Array.from(enc.encode(JSON.stringify(JSON.parse(args))))
-  }
-
-  console.log(target, fc, args_enc, N, attached, gas)
-  let params = {target:target, fc:fc, args:args_enc, N:N,
-                attach:attached, GAS:gas}
-
+export async function exec(params, attached){
   const account = window.walletConnection.account()
   account.functionCall(
     nearConfig.contractName, 'call_N_times', 
     params, 300000000000000, attached
   )
+}
+
+
+export async function exec_and_return(params, attached){
+  let result = await contract.account.functionCall(
+    nearConfig.contractName, 'call_N_times', 
+    params, 300000000000000, attached
+  )
+  return nearAPI.providers.getTransactionLastResult(result)
 }

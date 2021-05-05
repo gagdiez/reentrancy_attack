@@ -1,0 +1,29 @@
+.text-success{
+  color: #b4ffc0 !important;
+}
+
+.text-danger{
+  color: #ffacb5 !important;
+}
+
+.text-info{
+  color: #9aecf9 !important;
+}
+
+div.jsoneditor-field{
+  color: #495057;
+}
+
+.jsoneditor{
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: .25rem !important;
+}
+
+.small-input{
+  width:2.2em;
+}
+
+.large-input{
+  width:14em;
+}
