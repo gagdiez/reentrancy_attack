@@ -1,22 +1,26 @@
 # Reentrancy Attacks
 
-This repository is composed by two components:
+![img](example.png)
+
+This repository shows how to perform a reentrancy attack on a smart contract, as well as how to protect a contract from such attack. The repo is composed by two components:
 1. A simple contract which allows to deposit and withdraw NEARs.
 2. A contract that can perform a reentrancy attack in any (unprotected) contract.
 
 ## The Exploitable Contract
 
 The Exploitable Contract (EC) is a contract that implements 3 methods:
-- Deposit: Allows to deposit money
-- Withdraw: Allows the user to withdraw the money it deposited
+- Deposit: Method that allows to deposit money
+- Withdraw: Method that allows to withdraw the deposited money
 - Withdraw Reentrancy: An exploitable version of the method "withdraw".
 
 ## Reentrancy Attack Contract
 
-The Reentrancy Attack Contract (RAC) implements a single method. Given a
+The Reentrancy Attack Contract (RAC) implements a single method. Given a 
 contract address (TARGET), a function (fc), its arguments (args), and a
 number N, our contract will call Target.fc(args) N times in a row to try
 to exploit it.
+
+I have built a user friendly UI to interact with the contract.
 
 # Performing a Reentrancy Attack in the Explitable Contract
 
